@@ -6,7 +6,7 @@
 
 🌐 [View the live site](https://spirit-101.github.io/clipboard-landing-page/)
 
-🧠 [Check out the solution](https://www.frontendmentor.io/solutions/testimonials-grid-section-FZnxKc08JL)
+🧠 [Check out the solution](https://www.frontendmentor.io/solutions/clipboard-landing-page-bcebJ-jbEW)
 
 📝 [View the challenge](https://www.frontendmentor.io/challenges/clipboard-landing-page-5cc9bccd6c4c91111378ecb9)
 

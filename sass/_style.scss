@@ -1,0 +1,399 @@
+// RESETS
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  max-inline-size: 100%;
+  block-size: auto;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+  border: none;
+}
+
+// PIXEL -> REM (FUNC)
+$html-font-size: 16px;
+@function stripUnit($value) {
+  @return $value / ($value * 0 + 1);
+}
+@function rem($pxValue) {
+  @return #{stripUnit($pxValue) / stripUnit($html-font-size)}rem;
+}
+
+// VARIABLES
+
+$cyan: hsl(171, 66%, 44%);
+$light-blue: hsl(233, 100%, 69%);
+
+$dark-gray-blue: hsl(210, 10%, 33%);
+$gray-blue: hsl(201, 11%, 66%);
+
+// STYLING
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: rem(18px);
+  font-weight: 400;
+  line-height: 1.1;
+
+  background-image: url(../images/bg-header-desktop.png);
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-size: 100%;
+  min-height: 100vh;
+
+  display: grid;
+  place-content: center;
+
+  @include respond(phone) {
+    background-image: url(../images/bg-header-mobile.png);
+  }
+}
+
+.container {
+  max-width: rem(1600px);
+  padding: 0 rem(32px);
+  margin: 0 auto;
+  display: grid;
+  justify-content: center;
+  align-items: center;
+}
+
+header {
+  background-image: url(../images/bg-header-desktop.png);
+  background-size: cover;
+}
+
+h1,
+h2,
+h3 {
+  color: $dark-gray-blue;
+  margin-bottom: rem(20px);
+}
+
+.text {
+  color: $gray-blue;
+  font-size: rem(17px);
+  line-height: 1.6;
+  padding: 0 rem(260px);
+
+  @include respond(phone) {
+    padding: 0 rem(0px);
+    text-align: center;
+  }
+}
+
+.heading-primary {
+  font-size: rem(42px);
+
+  @include respond(phone) {
+    font-size: rem(30px);
+    padding: 0 rem(20px);
+  }
+}
+
+.heading-secondary {
+  font-size: rem(32px);
+
+  @include respond(phone) {
+    font-size: rem(26px);
+  }
+}
+
+.heading-tertiary {
+  font-size: rem(23px);
+  font-weight: 600;
+  margin-bottom: rem(12px);
+
+  @include respond(phone) {
+    font-size: rem(20px);
+    text-align: center;
+  }
+}
+
+section:not(.section__hero) {
+  padding: rem(50px) 0;
+
+  @include respond(phone) {
+    padding: rem(40px) 0;
+  }
+}
+
+.title-box {
+  margin-bottom: rem(85px);
+  text-align: center;
+}
+
+.hero {
+  &__box {
+    padding: rem(120px) 0;
+    text-align: center;
+  }
+
+  &__img {
+    margin-bottom: rem(40px);
+  }
+
+  &__text {
+    color: $gray-blue;
+    line-height: 1.4;
+    padding: 0 rem(275px);
+
+    @include respond(phone) {
+      padding: 0 rem(0px);
+      font-size: rem(17px);
+      line-height: 1.6;
+    }
+  }
+
+  &__title-box {
+    margin-bottom: rem(50px);
+  }
+}
+
+.btn-box {
+  @include respond(phone) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+.feature {
+  &__container {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: rem(120px);
+    align-items: center;
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      gap: rem(75px);
+    }
+  }
+
+  &__img-box {
+    margin-left: rem(-150px);
+
+    @include respond(phone) {
+      margin-left: 0;
+    }
+  }
+
+  &__box {
+    &:not(:last-of-type) {
+      margin-bottom: rem(50px);
+    }
+  }
+
+  &__text {
+    color: $gray-blue;
+    font-size: rem(17px);
+    line-height: 1.6;
+    padding-right: rem(100px);
+
+    @include respond(phone) {
+      padding-right: 0;
+      text-align: center;
+    }
+  }
+}
+
+.access {
+  &__img-box {
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.tools {
+  &__container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: rem(40px);
+
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+      grid-template-columns: 1fr;
+      gap: rem(60px);
+      margin-bottom: rem(80px);
+    }
+  }
+
+  &__box {
+    text-align: center;
+  }
+
+  &__text {
+    padding: 0;
+  }
+
+  &__icon {
+    margin-bottom: rem(35px);
+  }
+}
+
+.section__logos {
+  padding: rem(100px) 0 !important;
+
+  @include respond(phone) {
+    padding: 0 !important;
+  }
+}
+
+.logos {
+  &__container {
+    display: flex;
+    gap: rem(80px);
+    align-items: center;
+    justify-content: center;
+
+    @include respond(phone) {
+      flex-direction: column;
+      gap: rem(60px);
+      margin-bottom: rem(60px);
+    }
+  }
+}
+
+.download {
+  &__title-box {
+    margin-bottom: rem(50px);
+
+    @include respond(phone) {
+      margin-bottom: rem(30px);
+
+      & .heading-secondary {
+        padding: 0 rem(10px);
+      }
+    }
+  }
+}
+
+footer {
+  margin-top: rem(100px);
+}
+
+.footer {
+  max-width: 100%;
+  padding: rem(50px) rem(40px) rem(40px) rem(150px);
+  background-color: #f5f6f8;
+
+  @include respond(phone) {
+    padding: rem(20px) 0;
+  }
+
+  &__container {
+    display: grid;
+    // grid-template-columns: repeat(4, minmax(rem(100px), 1fr)) 3fr;
+    grid-template-columns: repeat(4, 1fr) 3fr;
+    gap: rem(50px);
+
+    @include respond(phone) {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: center;
+      gap: rem(30px);
+    }
+  }
+
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    gap: rem(20px);
+
+    @include respond(phone) {
+      gap: rem(30px);
+      align-items: center;
+    }
+  }
+
+  &__social-box {
+    display: flex;
+    align-items: center;
+    gap: rem(20px);
+    grid-column: 5 / -1;
+    justify-content: center;
+
+    @include respond(phone) {
+      margin-top: rem(20px);
+      gap: rem(34px);
+    }
+  }
+
+  &__link {
+    color: $dark-gray-blue;
+  }
+}
+
+.btn {
+  padding: rem(17px) rem(30px);
+  border-radius: 23px;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 rem(4px) rem(5px) rgba(0, 0, 0, 0.15);
+
+  @include respond(phone) {
+    padding: rem(22px) rem(75px);
+    border-radius: 25px;
+  }
+
+  &__ios {
+    background-color: $cyan;
+    margin-right: rem(12px);
+
+    @include respond(phone) {
+      margin-right: 0;
+      margin-bottom: rem(20px);
+    }
+  }
+
+  &__mac {
+    background-color: $light-blue;
+  }
+
+  &-box {
+    text-align: center;
+  }
+}
+
+.logo {
+  width: rem(55px);
+  height: rem(55px);
+}
+
+// UTILITIES
